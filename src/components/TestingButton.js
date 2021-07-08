@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 function TestingButton() {
-    return (
-        <div>
-            <button style={{backgroundColor:'red'}}  >Click to change to  </button>
-        </div>
-    )
+	const [buttonColor, setButtonColor] = useState('red');
+	const newButtonColor = buttonColor === 'red' ? 'blue' : 'red';
+	return (
+		<div>
+			<button style={{ backgroundColor: buttonColor }}
+            onClick={()=>setButtonColor(newButtonColor) }
+            >
+				Change to {newButtonColor}
+			</button>
+		</div>
+	);
 }
 
-export default TestingButton
+export default TestingButton;

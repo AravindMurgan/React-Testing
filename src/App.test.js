@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react'
 import App from './App';
 
 test('button color is red', () => {
@@ -12,7 +12,7 @@ test('button color is red', () => {
 
 	expect(colorBtn).toHaveStyle({ backgroundColor: 'blue' });
 
-	expect(colorBtn.textContent).toBe('Change to red');
+	expect(colorBtn).toHaveTextContent('Change to red');
 });
 
 test('initial conditions', () => {

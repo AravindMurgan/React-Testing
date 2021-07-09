@@ -9,15 +9,17 @@ function TestingButton() {
 			<button
 				style={{ backgroundColor: disabled ? 'grey' : buttonColor }}
 				onClick={() => setButtonColor(newButtonColor)}
-                disabled={disabled}
+				disabled={disabled}
 			>
 				Change to {newButtonColor}
 			</button>
 			<br />
 
-			<input type='checkbox'
-            defaultChecked={disabled}
-            onChange={(e) => setDisabled(e.target.checked)} />
+			<input
+				type='checkbox'
+				defaultChecked={disabled}
+				onChange={(e) => setDisabled(e.target.checked)}
+			/>
 		</div>
 	);
 }

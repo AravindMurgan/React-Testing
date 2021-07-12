@@ -32,6 +32,12 @@ test('popover responds to hover', () => {
 	);
 	expect(nullPopover).not.toBeInTheDocument();
 	//popover appears when we hover//
-        
-	//popover disappear when we hover out//
+    const termsAndConditions = screen.getByText(/terms and conditions/i);
+    userEvent.hover(termsAndConditions);
+    const popover = screen.getByText(/no icecream will actually be delivered/i);
+    expect(popover).toBeInTheDocument()
+    //popover disappear when we hover out//
+    userEvent.unhover(termsAndConditions);
+    const nullPopOverAgain = screen.queryByText(/no icecream will actually be delivered/i);
+    expect(nullPopOverAgain).not.toBeInTheDocument();
 });

@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
+import TestingButton from './components/TestingButton';
 
 test('button color is red', () => {
-	render(<App />);
+	render(<TestingButton />);
 
 	const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
 
@@ -16,7 +16,7 @@ test('button color is red', () => {
 });
 
 test('initial conditions', () => {
-	render(<App />);
+	render(<TestingButton />);
 	//checking btn is enabled
 	const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
 	expect(colorBtn).toBeDisabled();
@@ -27,7 +27,7 @@ test('initial conditions', () => {
 });
 
 test('enable and disable button when checkbox is clicked', () => {
-	render(<App />);
+	render(<TestingButton />);
 
 	const checkbox = screen.getByRole('checkbox');
 	const colorBtn = screen.getByRole('button');
@@ -42,7 +42,8 @@ test('enable and disable button when checkbox is clicked', () => {
 });
 
 test('button turns grey when disabled', () => {
-	render(<App />);
+	render(<TestingButton
+		 />);
 
 	const checkbox = screen.getByRole('checkbox');
 	const button = screen.getByRole('button');

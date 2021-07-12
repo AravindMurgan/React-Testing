@@ -1,12 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import SummaryForm from '../summary/SummaryForm';
 
 test('initial conditions', () => {
 	render(<SummaryForm />);
 
-	const checkbox = screen.getByRole('checkbox', {
-		name: /terms and conditions/i,
-	});
+	const checkbox = screen.getByRole('checkbox');
 	const button = screen.getByRole('button', { name: /confirm order/i });
 
 	expect(checkbox).not.toBeChecked();
@@ -16,14 +15,21 @@ test('initial conditions', () => {
 
 test('enable disable checkbox and button', () => {
 	render(<SummaryForm />);
-	const checkbox = screen.getByRole('checkbox', {
-		name: /terms and conditions/i,
-	});
+	const checkbox = screen.getByRole('checkbox');
 	const button = screen.getByRole('button', { name: /confirm order/i });
-    //enable checkbox and button//
-	fireEvent.click(checkbox);
+	//enable checkbox and button//
+	userEvent.click(checkbox);
 	expect(button).toBeEnabled();
-    ///disable checkbox and button//
-	fireEvent.click(checkbox);
+	///disable checkbox and button//
+	userEvent.click(checkbox);
 	expect(button).toBeDisabled();
 });
+
+test('popover responds to hover',()=>{
+    //popover starts out hidden//
+
+    //popover appears when we hover//
+
+    //popover disappear when we hover out//
+    
+})

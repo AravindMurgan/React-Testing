@@ -1,13 +1,13 @@
 import './App.css';
-import TestingButton from './components/TestingButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
-console.log('test');
+import SummaryForm from './pages/summary/SummaryForm';
+
 
 function App() {
 
 	return (
 		<div className='App'>
-			<TestingButton />
+			<SummaryForm />
 		</div>
 	);
 }

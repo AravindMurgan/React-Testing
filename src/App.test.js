@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 test('button color is red', () => {
@@ -19,7 +19,7 @@ test('initial conditions', () => {
 	render(<App />);
 	//checking btn is enabled
 	const colorBtn = screen.getByRole('button', { name: 'Change to blue' });
-	expect(colorBtn).toBeEnabled();
+	expect(colorBtn).toBeDisabled();
 
 	//checking initial checkbox which is unchecked
 	const checkbox = screen.getByRole('checkbox');

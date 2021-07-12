@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { Form,Button,FormGroup,FormCheck} from 'react-bootstrap';
-
-
+import { Button, Form, FormCheck, FormGroup,OverlayTrigger,Popover } from 'react-bootstrap';
 
 function SummaryForm() {
 	const [toChecked, setToChecked] = useState(false);
 
+	const popover = (
+		<Popover id='popover-basic'>
+			<Popover.Content>no icecream will actually be delivered</Popover.Content>
+		</Popover>
+	);
+
 	const checkboxLabel = (
-		<span>
-			I agree to <span style={{ color: 'blue' }}>Terms and Conditions</span>
-		</span>
+		<OverlayTrigger placement='right' overlay={popover}>
+			<span>
+				I agree to <span style={{ color: 'blue' }}>Terms and Conditions</span>
+			</span>
+		</OverlayTrigger>
 	);
 
 	return (
@@ -22,7 +28,9 @@ function SummaryForm() {
 					label={checkboxLabel}
 				/>
 			</FormGroup>
-			<Button variant='primary' type='submit' disabled={!toChecked}>Confirm Order</Button>
+			<Button variant='primary' type='submit' disabled={!toChecked}>
+				Confirm Order
+			</Button>
 		</Form>
 	);
 }

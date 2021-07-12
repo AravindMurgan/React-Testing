@@ -25,11 +25,13 @@ test('enable disable checkbox and button', () => {
 	expect(button).toBeDisabled();
 });
 
-test('popover responds to hover',()=>{
-    //popover starts out hidden//
-
-    //popover appears when we hover//
-
-    //popover disappear when we hover out//
-    
-})
+test('popover responds to hover', () => {
+	//popover starts out hidden//
+	const nullPopover = screen.queryByText(
+		/no icecream will actually be delivered/i
+	);
+	expect(nullPopover).not.toBeInTheDocument();
+	//popover appears when we hover//
+        
+	//popover disappear when we hover out//
+});
